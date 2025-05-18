@@ -26,40 +26,91 @@ const Login = () => {
     }
   };
 
-  
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleEmailChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handlePasswordChange}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      {msg && <p>{msg}</p>}
+    <div
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1521791136064-7986c2920216')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontFamily: 'Arial, sans-serif',
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.95)',
+          padding: '40px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
+          width: '350px',
+        }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '24px' }}>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleEmailChange}
+            required
+            style={inputStyle}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handlePasswordChange}
+            required
+            style={inputStyle}
+          />
+          <button type="submit" style={buttonStyle}>Login</button>
+        </form>
+        {msg && <p style={{ color: 'red', marginTop: '10px' }}>{msg}</p>}
 
-      <p>
-        Don't have an account?{' '}
-        <button onClick={() => navigate('/signup')} style={{ color: 'blue', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline' }}>
-          Sign up
-        </button>
-      </p>
-
+        <p style={{ marginTop: '20px', textAlign: 'center' }}>
+          Don't have an account?{' '}
+          <button
+            onClick={() => navigate('/signup')}
+            style={{
+              color: '#007BFF',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              padding: 0,
+            }}
+          >
+            Sign up
+          </button>
+        </p>
+      </div>
     </div>
   );
+};
+
+const inputStyle = {
+  width: '100%',
+  padding: '12px',
+  marginBottom: '16px',
+  border: '1px solid #ccc',
+  borderRadius: '6px',
+  fontSize: '16px',
+};
+
+const buttonStyle = {
+  width: '100%',
+  padding: '12px',
+  backgroundColor: '#007BFF',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '6px',
+  fontSize: '16px',
+  cursor: 'pointer',
 };
 
 export default Login;
